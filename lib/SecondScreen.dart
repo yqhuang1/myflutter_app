@@ -21,11 +21,23 @@ class SecondScreen extends StatelessWidget {
               onPressed: launchURL,
               child: new Text('Show Flutter homepage'),
             ),
-            new RaisedButton(
+            new Divider(
+              color: Colors.green,
+            ),
+            new FlatButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: new Text('back homepage'),
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.black,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              child: Text(
+                "back homepage",
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
           ],
         ),

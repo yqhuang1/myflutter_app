@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/AnimatedListSample.dart';
 import 'package:layout/loadExample.dart';
 import 'SecondScreen.dart';
 
@@ -13,6 +14,7 @@ void main() {
     routes: <String, WidgetBuilder>{
       '/a': (BuildContext context) => new SecondScreen(),
       '/b': (BuildContext context) => new loadExample(),
+      '/c': (BuildContext context) => new AnimatedListSample(),
     },
   ));
 }
@@ -137,6 +139,12 @@ class MyApp extends StatelessWidget {
                   new MaterialPageRoute(
                       builder: (context) => new loadExample()),
                 );
+              },
+            ),
+            new RaisedButton(
+              child: new Text('AnimatedListSample'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/c');
               },
             ),
           ],
