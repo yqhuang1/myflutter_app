@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/loadExample.dart';
 import 'SecondScreen.dart';
 
 // Uncomment lines 7 and 10 to view the visual layout at runtime.
@@ -9,6 +10,10 @@ void main() {
   runApp(new MaterialApp(
     title: 'Navigation Basics',
     home: new MyApp(),
+    routes: <String, WidgetBuilder>{
+      '/a': (BuildContext context) => new SecondScreen(),
+      '/b': (BuildContext context) => new loadExample(),
+    },
   ));
 }
 
@@ -71,12 +76,9 @@ class MyApp extends StatelessWidget {
             ),
           ),
           new RaisedButton(
-            child: new Text('Launch new screen'),
+            child: new Text('2-Screen'),
             onPressed: () {
-              Navigator.push(
-                context,
-                new MaterialPageRoute(builder: (context) => new SecondScreen()),
-              );
+              Navigator.of(context).pushNamed('/a');
             },
           ),
         ],
@@ -109,6 +111,7 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    // 这里返回显示view
     return MaterialApp(
       title: 'Flutter layout demo',
       home: Scaffold(
@@ -126,6 +129,16 @@ class MyApp extends StatelessWidget {
             titleSection,
             buttonSection,
             textSection,
+            new RaisedButton(
+              child: new Text('loadExample'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new loadExample()),
+                );
+              },
+            ),
           ],
         ),
       ),
